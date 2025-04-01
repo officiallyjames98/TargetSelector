@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" 
+          content="width=device-width, 
+                   initial-scale=1.0">
+    <title>Exomars Target Selector</title>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            display: block;
+            justify-content: left;
+            align-items: center;
+            background-color: #886b6b;
+        }
+        .dropdown {
+            position: relative;
+            width: 200px;
+        }
+        .dropdown-button {
+            width: 100%;
+            padding: 10px;
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            width: 100%;
+            max-height: 150px;
+            overflow-y: auto;
+            background-color: white;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .dropdown-menu div {
+            padding: 10px;
+            cursor: pointer;
+        }
+        .dropdown-menu div:hover {
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id = "myCanvas" width="240" height="5"></canvas>
+    
+    <h1>Exomars Target Selector</h1>
+    
+    <p id = "hiddenMessage" style = "visibility:hidden" style = display:block> You have won!</p>
+    <button onclick ="revealWinner()"> Click here! </button>
+
+    <div class="dropdown" >
+        <button class="dropdown-button" id = 'dropdown-button' onclick="toggleMenu()">Select Sol</button>
+        <div class="dropdown-menu">
+            <div onclick="selectOption(this)">Sol 1</div>
+            <div onclick="selectOption(this)">Sol 2</div>
+            <div onclick="selectOption(this)">Sol 3</div>
+            <div onclick="selectOption(this)">Sol 4</div>
+            <div onclick="selectOption(this)">Sol 5</div>
+        </div>
+    </div>
+
+    <div style="display:block;">
+    <img id="panorama" width="1000" height="300" src="SolSelect.png" alt="asd">
+    </div>
+
+    <p id="coord" style = display:block> x: , y: </p>
+    <p id="target" style = display:block> x real: , y real: </p>
+    
+    <textarea title = "help"id="Target Reasoning" name="target_reason" rows="5" cols="33" style = display:block>Please enter reasoning for this target</textarea>
+
+    <button onclick ="setTarget()"> Set Target </button>
+
+    <button onclick ="clearSingleTarget()"> Clear Last Target </button>
+    <button onclick ="clearAllTarget()"> Clear All Targets </button>
+
+
+    <p id="test" style = display:block style = "visibility:hidden"> tester </p>
+    <script src="index.js"></script>
+
+
+</body>
+</html>
